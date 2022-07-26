@@ -4,11 +4,12 @@ import static hexlet.code.Cli.*;
 import static hexlet.code.games.Calc.startCalcGame;
 import static hexlet.code.games.Even.startEvenGame;
 import static hexlet.code.games.GCD.startGCDGame;
+import static hexlet.code.games.Greet.startGreetGame;
 import static hexlet.code.games.Prime.startPrimeGame;
 import static hexlet.code.games.Progression.startProgressionGame;
 
 public class Main {
-    final public static int FIRST_GAME_CODE = 1;
+    final public static int GREET_GAME_CODE = 1;
     final public static int EVEN_GAME_CODE = 2;
     final public static int CALC_GAME_CODE = 3;
     final public static int GCD_GAME_CODE = 4;
@@ -18,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
         int gameNumber = getGameNumber();
         switch (gameNumber) {
-            case FIRST_GAME_CODE -> startEvenGame();
+            case GREET_GAME_CODE -> startGreetGame();
             case EVEN_GAME_CODE -> startEvenGame();
             case CALC_GAME_CODE -> startCalcGame();
             case GCD_GAME_CODE -> startGCDGame();
