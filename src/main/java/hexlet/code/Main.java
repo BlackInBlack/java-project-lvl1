@@ -9,23 +9,28 @@ import static hexlet.code.games.Prime.startPrimeGame;
 import static hexlet.code.games.Progression.startProgressionGame;
 
 public class Main {
-    final static int GREET_GAME_CODE = 1;
-    final static int EVEN_GAME_CODE = 2;
-    final static int CALC_GAME_CODE = 3;
-    final static int GCD_GAME_CODE = 4;
-    final static int PROGRESSION_GAME_CODE = 5;
-    final static int PRIME_GAME_CODE = 6;
-    final static int GOODBYE_CODE = 0;
+
     public static void main(String[] args) {
-        int gameNumber = getGameNumber();
+        int needCorrectAnswers = 3;
+
+        final int greetGameCode = 1;
+        final int evenGameCode = 2;
+        final int calcGameCode = 3;
+        final int gcdGameCode = 4;
+        final int progressionGameCode = 5;
+        final int primeGameCode = 6;
+        final int goodbyeCode = 0;
+        final int gameNumber = getGameNumber();
+
         switch (gameNumber) {
-            case GREET_GAME_CODE -> startGreetGame();
-            case EVEN_GAME_CODE -> startEvenGame();
-            case CALC_GAME_CODE -> startCalcGame();
-            case GCD_GAME_CODE -> startGCDGame();
-            case PROGRESSION_GAME_CODE -> startProgressionGame();
-            case PRIME_GAME_CODE -> startPrimeGame();
-            case GOODBYE_CODE -> System.out.println("Goodbye!");
+            case greetGameCode -> startGreetGame();
+            case evenGameCode -> startEvenGame(needCorrectAnswers);
+            case calcGameCode -> startCalcGame(needCorrectAnswers);
+            case gcdGameCode -> startGCDGame(needCorrectAnswers);
+            case progressionGameCode -> startProgressionGame(needCorrectAnswers);
+            case primeGameCode -> startPrimeGame(needCorrectAnswers);
+            case goodbyeCode -> System.out.println("Goodbye!");
+            default -> throw new IllegalStateException("Unexpected value: " + gameNumber);
         }
     }
 }

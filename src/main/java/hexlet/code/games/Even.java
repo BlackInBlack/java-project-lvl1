@@ -5,18 +5,17 @@ import static hexlet.code.Cli.getUserName;
 
 public class Even {
 
-    public static void startEvenGame() {
-        int NEED_CORRECT_ANSWERS = 3;
-        int MAX_RANDOM_NUMBER = 100;
-        int EVEN_NUMBER_CHECK = 2;
+    public static void startEvenGame(int needCorrectAnswers) {
+        int maxRandomNumber = 100;
+        int evenNumberCheck = 2;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
         int correctAnswerCount = 0;
-        while (correctAnswerCount < NEED_CORRECT_ANSWERS) {
-            int number = (int) (Math.random() * MAX_RANDOM_NUMBER);
-            boolean isNumberEven = number % EVEN_NUMBER_CHECK == 0;
+        while (correctAnswerCount < needCorrectAnswers) {
+            int number = (int) (Math.random() * maxRandomNumber);
+            boolean isNumberEven = number % evenNumberCheck == 0;
             System.out.println("Question: " + number);
             String answer = getUserAnswer();
             String correctAnswer = isNumberEven ? "yes" : "no";
@@ -29,7 +28,7 @@ public class Even {
                 return;
             }
         }
-        if (correctAnswerCount == NEED_CORRECT_ANSWERS) {
+        if (correctAnswerCount == needCorrectAnswers) {
             System.out.println("Congratulations, " + name + "!");
         }
     }
