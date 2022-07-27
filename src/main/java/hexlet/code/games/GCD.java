@@ -30,7 +30,8 @@ public class GCD {
                 System.out.println("Correct!");
                 correctAnswerCount++;
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'." + "Let's try again, " + name + "!");
+                return;
             }
         }
         if (correctAnswerCount == 3) {
