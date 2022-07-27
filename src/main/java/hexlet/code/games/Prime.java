@@ -26,7 +26,7 @@ public class Prime {
                     }
                 }
             }
-            System.out.print("Your answer: ");
+
             String answer = getUserAnswer();
             String correctAnswer = isQuestionNumberPrime ? "yes" : "no";
             if (answer.equals(correctAnswer)) {

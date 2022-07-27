@@ -25,6 +25,7 @@ public class Cli {
     }
 
     public static String getUserAnswer() {
+        System.out.println("Your answer: ");
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }

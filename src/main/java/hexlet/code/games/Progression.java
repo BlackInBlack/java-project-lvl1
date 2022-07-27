@@ -28,7 +28,6 @@ public class Progression {
                 }
             }
             System.out.println("Question: " + question);
-            System.out.print("Your answer: ");
             String answer = getUserAnswer();
             if (answer.equals(String.valueOf(correctAnswer))) {
                 System.out.println("Correct!");

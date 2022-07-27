@@ -17,7 +17,6 @@ public class Calc {
             String randomOperation = operations[(int) (Math.random() * 3)];
             String question = firstNumber + " " + randomOperation + " " + secondNumber;
             System.out.println("Question: " + question);
-            System.out.print("Your answer: ");
             String answer = getUserAnswer();
             int correctAnswer = 0;
             switch (randomOperation) {

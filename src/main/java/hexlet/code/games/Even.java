@@ -14,7 +14,6 @@ public class Even {
             int number = (int) (Math.random() * 100);
             boolean isNumberEven = number % 2 == 0;
             System.out.println("Question: " + number);
-            System.out.print("Your answer: ");
             String answer = getUserAnswer();
             String correctAnswer = isNumberEven ? "yes" : "no";
             if (answer.equals(correctAnswer)) {

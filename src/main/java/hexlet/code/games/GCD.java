@@ -15,7 +15,6 @@ public class GCD {
             int secondNumber = (int) (Math.random() * 100) + 1;
             String question = firstNumber + " " + secondNumber;
             System.out.println("Question: " + question);
-            System.out.print("Your answer: ");
             String answer = getUserAnswer();
             int correctAnswer = 0;
             int i = Math.min(firstNumber, secondNumber);
