@@ -9,13 +9,13 @@ import static hexlet.code.games.Prime.startPrimeGame;
 import static hexlet.code.games.Progression.startProgressionGame;
 
 public class Main {
-    final public static int GREET_GAME_CODE = 1;
-    final public static int EVEN_GAME_CODE = 2;
-    final public static int CALC_GAME_CODE = 3;
-    final public static int GCD_GAME_CODE = 4;
-    final public static int PROGRESSION_GAME_CODE = 5;
-    final public static int PRIME_GAME_CODE = 6;
-    final public static int GOODBYE_CODE = 0;
+    final static int GREET_GAME_CODE = 1;
+    final static int EVEN_GAME_CODE = 2;
+    final static int CALC_GAME_CODE = 3;
+    final static int GCD_GAME_CODE = 4;
+    final static int PROGRESSION_GAME_CODE = 5;
+    final static int PRIME_GAME_CODE = 6;
+    final static int GOODBYE_CODE = 0;
     public static void main(String[] args) {
         int gameNumber = getGameNumber();
         switch (gameNumber) {

@@ -4,17 +4,22 @@ import static hexlet.code.Cli.getUserAnswer;
 import static hexlet.code.Cli.getUserName;
 
 public class Calc {
+
+    final static int NEED_CORRECT_ANSWERS = 3;
+    final static int MAX_RANDOM_NUMBER = 100;
+    final static int OPERATIONS_COUNT = 3;
+
     public static void startCalcGame() {
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");
         System.out.println("What is the result of the expression?");
         int correctAnswerCount = 0;
-        while (correctAnswerCount < 3) {
-            int firstNumber = (int) (Math.random() * 100);
-            int secondNumber = (int) (Math.random() * 100);
+        while (correctAnswerCount < NEED_CORRECT_ANSWERS) {
+            int firstNumber = (int) (Math.random() * MAX_RANDOM_NUMBER);
+            int secondNumber = (int) (Math.random() * MAX_RANDOM_NUMBER);
             String[] operations = {"+", "*", "-"};
-            String randomOperation = operations[(int) (Math.random() * 3)];
+            String randomOperation = operations[(int) (Math.random() * OPERATIONS_COUNT)];
             String question = firstNumber + " " + randomOperation + " " + secondNumber;
             System.out.println("Question: " + question);
             String answer = getUserAnswer();
@@ -28,11 +33,12 @@ public class Calc {
                 System.out.println("Correct!");
                 correctAnswerCount++;
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'." + "Let's try again, " + name + "!");
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'." +
+                        "Let's try again, " + name + "!");
                 return;
             }
         }
-        if (correctAnswerCount == 3) {
+        if (correctAnswerCount == NEED_CORRECT_ANSWERS) {
             System.out.println("Congratulations, " + name + "!");
         }
     }
