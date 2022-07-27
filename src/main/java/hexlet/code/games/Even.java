@@ -5,10 +5,10 @@ import static hexlet.code.Cli.getUserName;
 
 public class Even {
 
-    final static int NEED_CORRECT_ANSWERS = 3;
-    final static int MAX_RANDOM_NUMBER = 100;
-    final static int EVEN_NUMBER_CHECK = 2;
     public static void startEvenGame() {
+        int NEED_CORRECT_ANSWERS = 3;
+        int MAX_RANDOM_NUMBER = 100;
+        int EVEN_NUMBER_CHECK = 2;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");

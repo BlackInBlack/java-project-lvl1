@@ -5,13 +5,12 @@ import static hexlet.code.Cli.getUserName;
 
 public class Progression {
 
-    final static int NEED_CORRECT_ANSWERS = 3;
-    final static int MAX_RANDOM_NUMBER = 100;
-    final static int MAX_RANDOM_NUMBER_FOR_SUM = 100;
-    final static int MIN_RANDOM_NUMBER = 1;
-    final static int PROGRESSION_NUMBER_COUNT = 15;
-
     public static void startProgressionGame() {
+        int NEED_CORRECT_ANSWERS = 3;
+        int MAX_RANDOM_NUMBER = 100;
+        int MAX_RANDOM_NUMBER_FOR_SUM = 100;
+        int MIN_RANDOM_NUMBER = 1;
+        int PROGRESSION_NUMBER_COUNT = 15;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");

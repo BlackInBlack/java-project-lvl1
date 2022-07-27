@@ -5,10 +5,10 @@ import static hexlet.code.Cli.getUserName;
 
 public class Prime {
 
-    final static int NEED_CORRECT_ANSWERS = 3;
-    final static int MAX_RANDOM_NUMBER = 100;
-    final static int MIN_RANDOM_NUMBER = 1;
     public static void startPrimeGame() {
+        int NEED_CORRECT_ANSWERS = 3;
+        int MAX_RANDOM_NUMBER = 100;
+        int MIN_RANDOM_NUMBER = 1;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");
