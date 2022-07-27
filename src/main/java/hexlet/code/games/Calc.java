@@ -6,8 +6,8 @@ import static hexlet.code.Cli.getUserName;
 public class Calc {
 
     public static void startCalcGame(int needCorrectAnswers) {
-        int maxRandomNumberForQuestion = 100;
-        int operationsCountInQuestion = 3;
+        final int maxRandomNumberForQuestion = 100;
+        final int operationsCountInQuestion = 3;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");

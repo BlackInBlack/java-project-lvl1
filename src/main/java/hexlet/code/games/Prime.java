@@ -6,7 +6,7 @@ import static hexlet.code.Cli.getUserName;
 public class Prime {
 
     public static void startPrimeGame(int needCorrectAnswers) {
-        int maxRandomNumberForQuestion = 100;
+        final int maxRandomNumberForQuestion = 100;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");

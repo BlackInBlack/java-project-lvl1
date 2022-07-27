@@ -6,8 +6,8 @@ import static hexlet.code.Cli.getUserName;
 public class GCD {
 
     public static void startGCDGame(int needCorrectAnswers) {
-        int maxRandomNumberForQuestion = 100;
-        int minRandomNumberForQuestion = 1;
+        final int maxRandomNumberForQuestion = 100;
+        final int minRandomNumberForQuestion = 1;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");

@@ -6,10 +6,10 @@ import static hexlet.code.Cli.getUserName;
 public class Progression {
 
     public static void startProgressionGame(int needCorrectAnswers) {
-        int maxRandomNumberForQuestion = 100;
-        int maxRandomNumberForSum = 20;
-        int minRandomNumberForQuestion = 1;
-        int progressionNumbersCount = 15;
+        final int maxRandomNumberForQuestion = 100;
+        final int maxRandomNumberForSum = 20;
+        final int minRandomNumberForQuestion = 1;
+        final int progressionNumbersCount = 15;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");

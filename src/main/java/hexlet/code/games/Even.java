@@ -6,8 +6,8 @@ import static hexlet.code.Cli.getUserName;
 public class Even {
 
     public static void startEvenGame(int needCorrectAnswers) {
-        int maxRandomNumberForQuestion = 100;
-        int evenNumberForCheckQuestion = 2;
+        final int maxRandomNumberForQuestion = 100;
+        final int evenNumberForCheckQuestion = 2;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");
