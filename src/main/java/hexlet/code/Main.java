@@ -11,7 +11,7 @@ import static hexlet.code.games.Progression.startProgressionGame;
 public class Main {
 
     public static void main(String[] args) {
-        int needCorrectAnswersForWinGame = 3;
+        final int needCorrectAnswersForWinGame = 3;
 
         final int greetGameCode = 1;
         final int evenGameCode = 2;
