@@ -6,18 +6,18 @@ import static hexlet.code.Cli.getUserName;
 public class Calc {
 
     public static void startCalcGame(int needCorrectAnswers) {
-        int maxRandomNumber = 100;
-        int operationsCount = 3;
+        int maxRandomNumberForQuestion = 100;
+        int operationsCountInQuestion = 3;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");
         System.out.println("What is the result of the expression?");
         int correctAnswerCount = 0;
         while (correctAnswerCount < needCorrectAnswers) {
-            int firstNumber = (int) (Math.random() * maxRandomNumber);
-            int secondNumber = (int) (Math.random() * maxRandomNumber);
+            int firstNumber = (int) (Math.random() * maxRandomNumberForQuestion);
+            int secondNumber = (int) (Math.random() * maxRandomNumberForQuestion);
             String[] operations = {"+", "*", "-"};
-            String randomOperation = operations[(int) (Math.random() * operationsCount)];
+            String randomOperation = operations[(int) (Math.random() * operationsCountInQuestion)];
             String question = firstNumber + " " + randomOperation + " " + secondNumber;
             System.out.println("Question: " + question);
             String answer = getUserAnswer();

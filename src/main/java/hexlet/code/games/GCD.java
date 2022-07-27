@@ -6,16 +6,16 @@ import static hexlet.code.Cli.getUserName;
 public class GCD {
 
     public static void startGCDGame(int needCorrectAnswers) {
-        int maxRandomNumber = 100;
-        int minRandomNumber = 1;
+        int maxRandomNumberForQuestion = 100;
+        int minRandomNumberForQuestion = 1;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");
         System.out.println("Find the greatest common divisor of given numbers.");
         int correctAnswerCount = 0;
         while (correctAnswerCount < needCorrectAnswers) {
-            int firstNumber = (int) (Math.random() * maxRandomNumber) + minRandomNumber;
-            int secondNumber = (int) (Math.random() * maxRandomNumber) + minRandomNumber;
+            int firstNumber = (int) (Math.random() * maxRandomNumberForQuestion) + minRandomNumberForQuestion;
+            int secondNumber = (int) (Math.random() * maxRandomNumberForQuestion) + minRandomNumberForQuestion;
             String question = firstNumber + " " + secondNumber;
             System.out.println("Question: " + question);
             String answer = getUserAnswer();

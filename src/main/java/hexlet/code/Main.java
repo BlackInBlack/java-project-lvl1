@@ -11,7 +11,7 @@ import static hexlet.code.games.Progression.startProgressionGame;
 public class Main {
 
     public static void main(String[] args) {
-        int needCorrectAnswers = 3;
+        int needCorrectAnswersForWinGame = 3;
 
         final int greetGameCode = 1;
         final int evenGameCode = 2;
@@ -24,11 +24,11 @@ public class Main {
 
         switch (gameNumber) {
             case greetGameCode -> startGreetGame();
-            case evenGameCode -> startEvenGame(needCorrectAnswers);
-            case calcGameCode -> startCalcGame(needCorrectAnswers);
-            case gcdGameCode -> startGCDGame(needCorrectAnswers);
-            case progressionGameCode -> startProgressionGame(needCorrectAnswers);
-            case primeGameCode -> startPrimeGame(needCorrectAnswers);
+            case evenGameCode -> startEvenGame(needCorrectAnswersForWinGame);
+            case calcGameCode -> startCalcGame(needCorrectAnswersForWinGame);
+            case gcdGameCode -> startGCDGame(needCorrectAnswersForWinGame);
+            case progressionGameCode -> startProgressionGame(needCorrectAnswersForWinGame);
+            case primeGameCode -> startPrimeGame(needCorrectAnswersForWinGame);
             case goodbyeCode -> System.out.println("Goodbye!");
             default -> throw new IllegalStateException("Unexpected value: " + gameNumber);
         }

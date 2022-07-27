@@ -6,16 +6,16 @@ import static hexlet.code.Cli.getUserName;
 public class Even {
 
     public static void startEvenGame(int needCorrectAnswers) {
-        int maxRandomNumber = 100;
-        int evenNumberCheck = 2;
+        int maxRandomNumberForQuestion = 100;
+        int evenNumberForCheckQuestion = 2;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
         int correctAnswerCount = 0;
         while (correctAnswerCount < needCorrectAnswers) {
-            int number = (int) (Math.random() * maxRandomNumber);
-            boolean isNumberEven = number % evenNumberCheck == 0;
+            int number = (int) (Math.random() * maxRandomNumberForQuestion);
+            boolean isNumberEven = number % evenNumberForCheckQuestion == 0;
             System.out.println("Question: " + number);
             String answer = getUserAnswer();
             String correctAnswer = isNumberEven ? "yes" : "no";

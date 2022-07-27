@@ -6,24 +6,24 @@ import static hexlet.code.Cli.getUserName;
 public class Progression {
 
     public static void startProgressionGame(int needCorrectAnswers) {
-        int maxRandomNumber = 100;
-        int maxRandomNumberForSum = 100;
-        int minRandomNumber = 1;
-        int progressionNumberCount = 15;
+        int maxRandomNumberForQuestion = 100;
+        int maxRandomNumberForSum = 20;
+        int minRandomNumberForQuestion = 1;
+        int progressionNumbersCount = 15;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");
         System.out.println("What number is missing in the progression?");
         int correctAnswerCount = 0;
         while (correctAnswerCount < needCorrectAnswers) {
-            int firstNumber = (int) (Math.random() * maxRandomNumber) + minRandomNumber;
+            int firstNumber = (int) (Math.random() * maxRandomNumberForQuestion) + minRandomNumberForQuestion;
 
-            int addNumber = (int) (Math.random() * maxRandomNumberForSum + minRandomNumber);
-            int hideNumberPosition = (int) (Math.random() * progressionNumberCount);
+            int addNumber = (int) (Math.random() * maxRandomNumberForSum + minRandomNumberForQuestion);
+            int hideNumberPosition = (int) (Math.random() * progressionNumbersCount);
             int sum = firstNumber;
             int correctAnswer = 0;
             String question = "";
-            for (int i = 0; i < progressionNumberCount; i++) {
+            for (int i = 0; i < progressionNumbersCount; i++) {
                 sum += addNumber;
                 if (i == hideNumberPosition) {
                     correctAnswer = sum;

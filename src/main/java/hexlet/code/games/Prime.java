@@ -6,14 +6,14 @@ import static hexlet.code.Cli.getUserName;
 public class Prime {
 
     public static void startPrimeGame(int needCorrectAnswers) {
-        int maxRandomNumber = 100;
+        int maxRandomNumberForQuestion = 100;
         System.out.println("Welcome to the Brain Games!");
         String name = getUserName();
         System.out.println("Hello, " + name + "!");
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         int correctAnswerCount = 0;
         while (correctAnswerCount < needCorrectAnswers) {
-            int questionNumber = (int) (Math.random() * maxRandomNumber);
+            int questionNumber = (int) (Math.random() * maxRandomNumberForQuestion);
             System.out.println("Question: " + questionNumber);
             boolean isQuestionNumberPrime = true;
             int half = questionNumber / 2;
