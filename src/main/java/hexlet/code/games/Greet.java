@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import static hexlet.code.Cli.getUserName;
+import static hexlet.code.user.UserActions.getUserName;
 
 public class Greet {
     public static void startGreetGame() {

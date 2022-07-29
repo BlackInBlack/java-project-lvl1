@@ -1,8 +1,8 @@
-package hexlet.code;
+package hexlet.code.user;
 
 import java.util.Scanner;
 
-public class Cli {
+public class UserActions {
 
     public static String getUserName() {
         Scanner sc = new Scanner(System.in);
@@ -10,7 +10,13 @@ public class Cli {
         return sc.nextLine();
     }
 
-    public static int getGameNumber() {
+    public static String getUserAnswer() {
+        System.out.println("Your answer: ");
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine();
+    }
+
+    public static int getUserGameNumber() {
         Scanner sc = new Scanner(System.in);
         System.out.println("""
                 Please enter the game number and press Enter.
@@ -25,9 +31,4 @@ public class Cli {
         return sc.nextInt();
     }
 
-    public static String getUserAnswer() {
-        System.out.println("Your answer: ");
-        Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
-    }
 }

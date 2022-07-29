@@ -1,51 +1,56 @@
 package hexlet.code.games;
 
-import static hexlet.code.Cli.getUserAnswer;
-import static hexlet.code.Cli.getUserName;
+import static hexlet.code.Utils.getRandomNumber;
+import static hexlet.code.games.GameActions.startGame;
 
 public class Calc {
 
     public static void startCalcGame(int needCorrectAnswers) {
         final int maxRandomNumberForQuestion = 100;
-        final int operationsCountInQuestion = 3;
-        System.out.println("Welcome to the Brain Games!");
-        String name = getUserName();
-        System.out.println("Hello, " + name + "!");
-        System.out.println("What is the result of the expression?");
-        int correctAnswerCount = 0;
-        while (correctAnswerCount < needCorrectAnswers) {
-            int firstNumber = (int) (Math.random() * maxRandomNumberForQuestion);
-            int secondNumber = (int) (Math.random() * maxRandomNumberForQuestion);
-            String[] operations = {"+", "*", "-"};
-            String randomOperation = operations[(int) (Math.random() * operationsCountInQuestion)];
-            String question = firstNumber + " " + randomOperation + " " + secondNumber;
-            System.out.println("Question: " + question);
-            String answer = getUserAnswer();
-            int correctAnswer = 0;
-            switch (randomOperation) {
+        final int minRandomNumberForQuestion = 0;
+
+        String[] questions = prepareQuestions(needCorrectAnswers, maxRandomNumberForQuestion,
+                minRandomNumberForQuestion);
+        String[] answers = prepareAnswers(questions);
+        String mainGameQuestionText = "What is the result of the expression?";
+        startGame(mainGameQuestionText, questions, answers);
+    }
+
+    private static String[] prepareAnswers(String[] questions) {
+        String[] answers = new String[questions.length];
+        for (int i = 0; i < questions.length; i++) {
+            String[] questionMembers = questions[i].split(" ");
+            int firstNumber = Integer.parseInt(questionMembers[0]);
+            String operation = questionMembers[1];
+            int secondNumber = Integer.parseInt(questionMembers[2]);
+            switch (operation) {
                 case "+":
-                    correctAnswer = firstNumber + secondNumber;
+                    answers[i] = String.valueOf(firstNumber + secondNumber);
                     break;
                 case "*":
-                    correctAnswer = firstNumber * secondNumber;
+                    answers[i] = String.valueOf(firstNumber * secondNumber);
                     break;
                 case "-":
-                    correctAnswer = firstNumber - secondNumber;
+                    answers[i] = String.valueOf(firstNumber - secondNumber);
                     break;
                 default:
-                    throw new IllegalStateException("Unexpected value: " + randomOperation);
-            }
-            if (answer.equals(String.valueOf(correctAnswer))) {
-                System.out.println("Correct!");
-                correctAnswerCount++;
-            } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'."
-                        + "Let's try again, " + name + "!");
-                return;
+                    throw new IllegalStateException("Unexpected value: " + operation);
             }
         }
-        if (correctAnswerCount == needCorrectAnswers) {
-            System.out.println("Congratulations, " + name + "!");
+        return answers;
+    }
+
+    public static String[] prepareQuestions(int correctQuestionsForWin, int maxRandomNumberForQuestion,
+                                            int minRandomNumberForQuestion) {
+        final int operationsCountInQuestion = 3;
+        String[] questions = new String[correctQuestionsForWin];
+        for (int i = 0; i < correctQuestionsForWin; i++) {
+            String[] operations = {"+", "*", "-"};
+            String randomOperation = operations[(int) (Math.random() * operationsCountInQuestion)];
+            int firstNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
+            int secondNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
+            questions[i] = firstNumber + " " + randomOperation + " " + secondNumber;
         }
+        return questions;
     }
 }

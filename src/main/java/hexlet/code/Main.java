@@ -1,12 +1,12 @@
 package hexlet.code;
 
-import static hexlet.code.Cli.getGameNumber;
 import static hexlet.code.games.Calc.startCalcGame;
 import static hexlet.code.games.Even.startEvenGame;
 import static hexlet.code.games.GCD.startGCDGame;
 import static hexlet.code.games.Greet.startGreetGame;
 import static hexlet.code.games.Prime.startPrimeGame;
 import static hexlet.code.games.Progression.startProgressionGame;
+import static hexlet.code.user.UserActions.getUserGameNumber;
 
 public class Main {
 
@@ -20,7 +20,7 @@ public class Main {
         final int progressionGameCode = 5;
         final int primeGameCode = 6;
         final int goodbyeCode = 0;
-        final int gameNumber = getGameNumber();
+        final int gameNumber = getUserGameNumber();
 
         switch (gameNumber) {
             case greetGameCode -> startGreetGame();

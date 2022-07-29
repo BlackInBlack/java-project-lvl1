@@ -1,45 +1,50 @@
 package hexlet.code.games;
 
-import static hexlet.code.Cli.getUserAnswer;
-import static hexlet.code.Cli.getUserName;
+import static hexlet.code.Utils.getRandomNumber;
+import static hexlet.code.games.GameActions.startGame;
 
 public class GCD {
 
     public static void startGCDGame(int needCorrectAnswers) {
         final int maxRandomNumberForQuestion = 100;
         final int minRandomNumberForQuestion = 1;
-        System.out.println("Welcome to the Brain Games!");
-        String name = getUserName();
-        System.out.println("Hello, " + name + "!");
-        System.out.println("Find the greatest common divisor of given numbers.");
-        int correctAnswerCount = 0;
-        while (correctAnswerCount < needCorrectAnswers) {
-            int firstNumber = (int) (Math.random() * maxRandomNumberForQuestion) + minRandomNumberForQuestion;
-            int secondNumber = (int) (Math.random() * maxRandomNumberForQuestion) + minRandomNumberForQuestion;
-            String question = firstNumber + " " + secondNumber;
-            System.out.println("Question: " + question);
-            String answer = getUserAnswer();
-            int correctAnswer = 0;
-            int i = Math.min(firstNumber, secondNumber);
-            while (true) {
-                if (firstNumber % i == 0 && secondNumber % i == 0) {
-                    correctAnswer = i;
-                    break;
-                } else {
-                    i--;
-                }
-            }
-            if (answer.equals(String.valueOf(correctAnswer))) {
-                System.out.println("Correct!");
-                correctAnswerCount++;
-            } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'."
-                        + "Let's try again, " + name + "!");
-                return;
-            }
+        String[] questions = prepareQuestions(needCorrectAnswers, maxRandomNumberForQuestion,
+                minRandomNumberForQuestion);
+        String[] answers = prepareAnswers(questions);
+        String mainGameQuestionText = "Find the greatest common divisor of given numbers.";
+        startGame(mainGameQuestionText, questions, answers);
+    }
+
+    private static String[] prepareAnswers(String[] questions) {
+        String[] answers = new String[questions.length];
+        for (int i = 0; i < questions.length; i++) {
+            String[] numberFromQuestion = questions[i].split(" ");
+            int firstNumber = Integer.parseInt(numberFromQuestion[0]);
+            int secondNumber = Integer.parseInt(numberFromQuestion[1]);
+            answers[i] = String.valueOf(findGCD(firstNumber, secondNumber));
         }
-        if (correctAnswerCount == needCorrectAnswers) {
-            System.out.println("Congratulations, " + name + "!");
+        return answers;
+    }
+
+    public static String[] prepareQuestions(int correctQuestionsForWin, int maxRandomNumberForQuestion,
+                                            int minRandomNumberForQuestion) {
+        String[] questions = new String[correctQuestionsForWin];
+        for (int i = 0; i < correctQuestionsForWin; i++) {
+            int firstNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
+            int secondNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
+            questions[i] = firstNumber + " " + secondNumber;
+        }
+        return questions;
+    }
+
+    public static int findGCD(int firstNumber, int secondNumber) {
+        int gcd = Math.min(firstNumber, secondNumber);
+        while (true) {
+            if (firstNumber % gcd == 0 && secondNumber % gcd == 0) {
+                return gcd;
+            } else {
+                gcd--;
+            }
         }
     }
 }
