@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import static hexlet.code.GameEngine.correctQuestionsForWin;
+import static hexlet.code.GameEngine.CORRECT_QUESTIONS_FOR_WIN;
 import static hexlet.code.GameEngine.startGame;
 import static hexlet.code.Utils.getRandomNumber;
 
@@ -10,15 +10,17 @@ public class Calc {
         final int maxRandomNumberForQuestion = 100;
         final int minRandomNumberForQuestion = 0;
 
-        String[][] questionsAndAnswers = prepareQuestionsAndAnswers(maxRandomNumberForQuestion, minRandomNumberForQuestion);
+        String[][] questionsAndAnswers = prepareQuestionsAndAnswers(maxRandomNumberForQuestion,
+                minRandomNumberForQuestion);
         String mainGameQuestionText = "What is the result of the expression?";
         startGame(mainGameQuestionText, questionsAndAnswers);
     }
 
-    public static String[][] prepareQuestionsAndAnswers(int maxRandomNumberForQuestion, int minRandomNumberForQuestion) {
+    public static String[][] prepareQuestionsAndAnswers(int maxRandomNumberForQuestion,
+                                                        int minRandomNumberForQuestion) {
         final int operationsCountInQuestion = 3;
-        String[][] questionsAndAnswers = new String[2][correctQuestionsForWin];
-        for (int i = 0; i < correctQuestionsForWin; i++) {
+        String[][] questionsAndAnswers = new String[2][CORRECT_QUESTIONS_FOR_WIN];
+        for (int i = 0; i < CORRECT_QUESTIONS_FOR_WIN; i++) {
             String[] operations = {"+", "*", "-"};
             String randomOperation = operations[(int) (Math.random() * operationsCountInQuestion)];
             int firstNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
