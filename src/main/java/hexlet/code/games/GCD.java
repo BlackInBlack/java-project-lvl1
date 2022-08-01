@@ -1,18 +1,17 @@
 package hexlet.code.games;
 
+import static hexlet.code.GameEngine.correctQuestionsForWin;
+import static hexlet.code.GameEngine.startGame;
 import static hexlet.code.Utils.getRandomNumber;
-import static hexlet.code.games.GameActions.startGame;
 
 public class GCD {
 
-    public static void startGCDGame(int needCorrectAnswers) {
+    public static void startGCDGame() {
         final int maxRandomNumberForQuestion = 100;
         final int minRandomNumberForQuestion = 1;
-        String[] questions = prepareQuestions(needCorrectAnswers, maxRandomNumberForQuestion,
-                minRandomNumberForQuestion);
-        String[] answers = prepareAnswers(questions);
+        String[][] questionsAndAnswers = prepareQuestionsAndAnswers(maxRandomNumberForQuestion, minRandomNumberForQuestion);
         String mainGameQuestionText = "Find the greatest common divisor of given numbers.";
-        startGame(mainGameQuestionText, questions, answers);
+        startGame(mainGameQuestionText, questionsAndAnswers);
     }
 
     private static String[] prepareAnswers(String[] questions) {
@@ -26,15 +25,14 @@ public class GCD {
         return answers;
     }
 
-    public static String[] prepareQuestions(int correctQuestionsForWin, int maxRandomNumberForQuestion,
-                                            int minRandomNumberForQuestion) {
-        String[] questions = new String[correctQuestionsForWin];
+    public static String[][] prepareQuestionsAndAnswers(int maxRandomNumberForQuestion, int minRandomNumberForQuestion) {
+        String[][] questionsAndAnswers = new String[2][correctQuestionsForWin];
         for (int i = 0; i < correctQuestionsForWin; i++) {
             int firstNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
             int secondNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
-            questions[i] = firstNumber + " " + secondNumber;
+            questionsAndAnswers[0][i] = firstNumber + " " + secondNumber;
         }
-        return questions;
+        return questionsAndAnswers;
     }
 
     public static int findGCD(int firstNumber, int secondNumber) {

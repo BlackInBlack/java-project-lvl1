@@ -1,44 +1,44 @@
 package hexlet.code.games;
 
+import static hexlet.code.GameEngine.correctQuestionsForWin;
+import static hexlet.code.GameEngine.startGame;
 import static hexlet.code.Utils.getRandomNumber;
-import static hexlet.code.games.GameActions.startGame;
 
 public class Progression {
 
-    public static void startProgressionGame(int needCorrectAnswers) {
+    public static void startProgressionGame() {
         final int maxRandomNumberForQuestion = 100;
         final int maxRandomNumberForSum = 20;
         final int minRandomNumberForQuestion = 0;
         final int progressionNumbersCount = 15;
 
-        String[] questions = prepareQuestions(needCorrectAnswers, maxRandomNumberForQuestion,
-                minRandomNumberForQuestion, progressionNumbersCount, maxRandomNumberForSum);
-        String[] answers = new String[questions.length];
-        for (int i = 0; i < questions.length; i++) {
-            String[] questionsProgressionNumbers = questions[i].split(" ");
-            int hideNumberPosition = getRandomNumber(minRandomNumberForQuestion, progressionNumbersCount);
-            answers[i] = questionsProgressionNumbers[hideNumberPosition];
-            questions[i] = questions[i].replace(answers[i], "..");
-        }
+        String[][] questionsAndAnswers = prepareQuestionsAndAnswers(maxRandomNumberForQuestion, minRandomNumberForQuestion,
+                progressionNumbersCount, maxRandomNumberForSum);
         String mainGameQuestionText = "What number is missing in the progression?";
-        startGame(mainGameQuestionText, questions, answers);
+        startGame(mainGameQuestionText, questionsAndAnswers);
     }
 
-    public static String[] prepareQuestions(int correctQuestionsForWin, int maxRandomNumberForQuestion,
+    public static String[][] prepareQuestionsAndAnswers(int maxRandomNumberForQuestion,
                                             int minRandomNumberForQuestion, int progressionNumbersCount,
                                             int maxRandomNumberForSum) {
-        String[] questions = new String[correctQuestionsForWin];
+        String[][] questionsAndAnswers = new String[2][correctQuestionsForWin];
         for (int i = 0; i < correctQuestionsForWin; i++) {
             int firstNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
             int addNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForSum);
             int sum = firstNumber;
-            questions[i] = "";
+            questionsAndAnswers[0][i] = "";
+            int hideNumberPosition = getRandomNumber(minRandomNumberForQuestion, progressionNumbersCount);
             for (int j = 0; j < progressionNumbersCount; j++) {
                 sum += addNumber;
-                questions[i] = questions[i] + sum + " ";
+                if(hideNumberPosition == j) {
+                    questionsAndAnswers[1][i] = String.valueOf(sum);
+                    questionsAndAnswers[0][i] = questionsAndAnswers[0][i] + ".. ";
+                } else {
+                    questionsAndAnswers[0][i] = questionsAndAnswers[0][i] + sum + " ";
+                }
             }
         }
-        return questions;
+        return questionsAndAnswers;
     }
 
 }

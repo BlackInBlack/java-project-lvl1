@@ -1,36 +1,27 @@
 package hexlet.code.games;
 
+import static hexlet.code.GameEngine.correctQuestionsForWin;
+import static hexlet.code.GameEngine.startGame;
 import static hexlet.code.Utils.getRandomNumber;
-import static hexlet.code.games.GameActions.startGame;
 
 public class Prime {
 
-    public static void startPrimeGame(int needCorrectAnswers) {
+    public static void startPrimeGame() {
         final int maxRandomNumberForQuestion = 100;
         final int minRandomNumberForQuestion = 0;
-        String[] questions = prepareQuestions(needCorrectAnswers, maxRandomNumberForQuestion,
-                minRandomNumberForQuestion);
-        String[] answers = prepareAnswers(questions);
+        String[][] questionsAndAnswers = prepareQuestionsAndAnswers(maxRandomNumberForQuestion, minRandomNumberForQuestion);
         String mainGameQuestionText = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        startGame(mainGameQuestionText, questions, answers);
+        startGame(mainGameQuestionText, questionsAndAnswers);
     }
 
-    private static String[] prepareAnswers(String[] questions) {
-        String[] answers = new String[questions.length];
-        for (int i = 0; i < questions.length; i++) {
-            answers[i] = isNumberPrime(Integer.parseInt(questions[i])) ? "yes" : "no";
-        }
-        return answers;
-    }
-
-    public static String[] prepareQuestions(int correctQuestionsForWin, int maxRandomNumberForQuestion,
-                                            int minRandomNumberForQuestion) {
-        String[] questions = new String[correctQuestionsForWin];
+    public static String[][] prepareQuestionsAndAnswers(int maxRandomNumberForQuestion, int minRandomNumberForQuestion) {
+        String[][] questionsAndAnswers = new String[2][correctQuestionsForWin];
         for (int i = 0; i < correctQuestionsForWin; i++) {
             int number = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
-            questions[i] = String.valueOf(number);
+            questionsAndAnswers[0][i] = String.valueOf(number);
+            questionsAndAnswers[1][i] = isNumberPrime(number) ? "yes" : "no";
         }
-        return questions;
+        return questionsAndAnswers;
     }
 
     public static boolean isNumberPrime(int questionNumber) {
