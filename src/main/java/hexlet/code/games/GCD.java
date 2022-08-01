@@ -15,17 +15,6 @@ public class GCD {
         startGame(mainGameQuestionText, questionsAndAnswers);
     }
 
-    private static String[] prepareAnswers(String[] questions) {
-        String[] answers = new String[questions.length];
-        for (int i = 0; i < questions.length; i++) {
-            String[] numberFromQuestion = questions[i].split(" ");
-            int firstNumber = Integer.parseInt(numberFromQuestion[0]);
-            int secondNumber = Integer.parseInt(numberFromQuestion[1]);
-            answers[i] = String.valueOf(findGCD(firstNumber, secondNumber));
-        }
-        return answers;
-    }
-
     public static String[][] prepareQuestionsAndAnswers(int maxRandomNumberForQuestion,
                                                         int minRandomNumberForQuestion) {
         String[][] questionsAndAnswers = new String[2][CORRECT_QUESTIONS_FOR_WIN];
@@ -33,6 +22,7 @@ public class GCD {
             int firstNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
             int secondNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
             questionsAndAnswers[0][i] = firstNumber + " " + secondNumber;
+            questionsAndAnswers[1][i] = String.valueOf(findGCD(firstNumber, secondNumber));
         }
         return questionsAndAnswers;
     }
