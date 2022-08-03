@@ -17,12 +17,12 @@ public class GCD {
 
     public static String[][] prepareQuestionsAndAnswers(int maxRandomNumberForQuestion,
                                                         int minRandomNumberForQuestion) {
-        String[][] questionsAndAnswers = new String[2][CORRECT_QUESTIONS_FOR_WIN];
+        String[][] questionsAndAnswers = new String[CORRECT_QUESTIONS_FOR_WIN][2];
         for (int i = 0; i < CORRECT_QUESTIONS_FOR_WIN; i++) {
             int firstNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
             int secondNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
-            questionsAndAnswers[0][i] = firstNumber + " " + secondNumber;
-            questionsAndAnswers[1][i] = String.valueOf(findGCD(firstNumber, secondNumber));
+            questionsAndAnswers[i][0] = firstNumber + " " + secondNumber;
+            questionsAndAnswers[i][1] = String.valueOf(findGCD(firstNumber, secondNumber));
         }
         return questionsAndAnswers;
     }

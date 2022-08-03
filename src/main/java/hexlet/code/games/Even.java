@@ -17,11 +17,11 @@ public class Even {
 
     public static String[][] prepareQuestionsAndAnswers(int maxRandomNumberForQuestion,
                                                         int minRandomNumberForQuestion) {
-        String[][] questionsAndAnswers = new String[2][CORRECT_QUESTIONS_FOR_WIN];
+        String[][] questionsAndAnswers = new String[CORRECT_QUESTIONS_FOR_WIN][2];
         for (int i = 0; i < CORRECT_QUESTIONS_FOR_WIN; i++) {
             int number = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
-            questionsAndAnswers[0][i] = String.valueOf(number);
-            questionsAndAnswers[1][i] = isNumberEven(number) ? "yes" : "no";
+            questionsAndAnswers[i][0] = String.valueOf(number);
+            questionsAndAnswers[i][1] = isNumberEven(number) ? "yes" : "no";
         }
         return questionsAndAnswers;
     }

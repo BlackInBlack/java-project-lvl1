@@ -22,20 +22,20 @@ public class Progression {
     public static String[][] prepareQuestionsAndAnswers(int maxRandomNumberForQuestion,
                                                         int minRandomNumberForQuestion, int progressionNumbersCount,
                                                         int maxRandomNumberForSum) {
-        String[][] questionsAndAnswers = new String[2][CORRECT_QUESTIONS_FOR_WIN];
+        String[][] questionsAndAnswers = new String[CORRECT_QUESTIONS_FOR_WIN][2];
         for (int i = 0; i < CORRECT_QUESTIONS_FOR_WIN; i++) {
             int firstNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForQuestion);
             int addNumber = getRandomNumber(minRandomNumberForQuestion, maxRandomNumberForSum);
             int sum = firstNumber;
-            questionsAndAnswers[0][i] = "";
+            questionsAndAnswers[i][0] = "";
             int hideNumberPosition = getRandomNumber(minRandomNumberForQuestion, progressionNumbersCount);
             for (int j = 0; j < progressionNumbersCount; j++) {
                 sum += addNumber;
                 if (hideNumberPosition == j) {
-                    questionsAndAnswers[1][i] = String.valueOf(sum);
-                    questionsAndAnswers[0][i] = questionsAndAnswers[0][i] + ".. ";
+                    questionsAndAnswers[i][1] = String.valueOf(sum);
+                    questionsAndAnswers[i][0] = questionsAndAnswers[i][0] + ".. ";
                 } else {
-                    questionsAndAnswers[0][i] = questionsAndAnswers[0][i] + sum + " ";
+                    questionsAndAnswers[i][0] = questionsAndAnswers[i][0] + sum + " ";
                 }
             }
         }

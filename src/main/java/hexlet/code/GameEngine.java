@@ -13,14 +13,14 @@ public class GameEngine {
         System.out.println("Hello, " + name + "!");
         System.out.println(mainGameQuestionText);
         for (int i = 0; i < CORRECT_QUESTIONS_FOR_WIN; i++) {
-            System.out.println("Question: " + questionsAndAnswers[0][i]);
+            System.out.println("Question: " + questionsAndAnswers[i][0]);
             System.out.println("Your answer: ");
             String userAnswer = sc.nextLine();
             if (userAnswer.equals(questionsAndAnswers[1][i])) {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
-                        + questionsAndAnswers[1][i] + "'." + "Let's try again, " + name + "!");
+                        + questionsAndAnswers[i][1] + "'." + "Let's try again, " + name + "!");
                 return;
             }
         }
