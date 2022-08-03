@@ -16,7 +16,7 @@ public class GameEngine {
             System.out.println("Question: " + questionsAndAnswers[i][0]);
             System.out.println("Your answer: ");
             String userAnswer = sc.nextLine();
-            if (userAnswer.equals(questionsAndAnswers[1][i])) {
+            if (userAnswer.equals(questionsAndAnswers[i][1])) {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
